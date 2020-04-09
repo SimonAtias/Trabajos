@@ -12,33 +12,34 @@ public class Main {
         Persona p1= new Persona();
         Persona p2= new Persona();
         Persona p3= new Persona();
+        Persona p4= new Persona();
 
-        Fecha f1i=new Fecha();
+        Fecha f1i=new Fecha(6,9,2020);
         f1i.setAnio(2020);
         f1i.setDia(6);
         f1i.setMes(9);
 
-        Fecha f1f=new Fecha();
+        Fecha f1f=new Fecha(20,10,2020);
         f1f.setDia(20);
         f1f.setMes(10);
         f1f.setAnio(2020);
 
-        Fecha f2i=new Fecha();
+        Fecha f2i=new Fecha(15,5,2020);
         f2i.setAnio(2020);
         f2i.setDia(15);
         f2i.setMes(5);
 
-        Fecha f2f=new Fecha();
+        Fecha f2f=new Fecha(20,5,2020);
         f2f.setDia(20);
         f2f.setMes(5);
         f2f.setAnio(2020);
 
-        Fecha f3i=new Fecha();
+        Fecha f3i=new Fecha(7,4,2020);
         f3i.setAnio(2020);
         f3i.setDia(7);
         f3i.setMes(4);
 
-        Fecha f3f=new Fecha();
+        Fecha f3f=new Fecha(25,4,2020);
         f3f.setDia(25);
         f3f.setMes(4);
         f3f.setAnio(2020);
@@ -51,6 +52,13 @@ public class Main {
         p1.setFechaSalida(f1f);
         p1.setVecesHospedado(7);
 
+        p4.setApellido("Perez");
+        p4.setNombre("Agustin");
+        p4.setDNI(46423738);
+        p4.setEdad(19);
+        p4.setFechaEntrada(f1i);
+        p4.setFechaSalida(f1f);
+        p4.setVecesHospedado(2);
 
         p2.setApellido("Sanchez");
         p2.setNombre("Nora");
@@ -74,14 +82,14 @@ public class Main {
         h1.setNumero(1);
         h1.setSolicitudes(n.nextInt(1000));
         h1.setOcupada(true);
-        h1.setHuesped(p1);
+        h1.addHuesped(p3);
 
 
         Habitacion h2 = new Habitacion(1);
         h2.setNumero(2);
         h2.setSolicitudes(n.nextInt(1000));
         h2.setOcupada(true);
-        h2.setHuesped(p2);
+        h2.addHuesped(p2);
 
 
         Habitacion h3 = new Habitacion(1);
@@ -123,7 +131,8 @@ public class Main {
         Habitacion h9 = new Habitacion(2);
         h9.setNumero(9);
         h9.setSolicitudes(n.nextInt(1000));
-        h9.setHuesped(p3);
+        h9.addHuesped(p1);
+        h9.addHuesped(p4);
         h9.setOcupada(true);
 
         Habitacion h10 = new Habitacion(2);
@@ -166,9 +175,7 @@ public class Main {
         Sheraton.addClientes(p1);
         Sheraton.addClientes(p2);
         Sheraton.addClientes(p3);
-
-
-        System.out.println(Sheraton.getIngresoTotal());
+        
 
     }
 }

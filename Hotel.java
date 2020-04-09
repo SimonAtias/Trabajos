@@ -95,11 +95,11 @@ public class Hotel {
         int i=0;
         while(i<this.Habitaciones.size()){
             if(this.Habitaciones.get(i).getOcupada()){
-                if(this.Habitaciones.get(i).getHuesped().getCantDias()<30) {
-                    ingreso = ingreso + (this.Habitaciones.get(i).getHuesped().getCantDias() * this.Habitaciones.get(i).getPrecioPorDia());
+                int dias=this.Habitaciones.get(i).getHuespedes().getFechaEntrada().getCantDias(this.Habitaciones.get(i).getHuespedes().getFechaSalida());
+                if(dias<30) {
+                    ingreso = ingreso + dias * this.Habitaciones.get(i).getPrecioPorDia();
                 }
                 else{
-                    int dias=this.Habitaciones.get(i).getHuesped().getCantDias();
                     int monto = dias*(this.Habitaciones.get(i).getPrecioPorDia());
                     ingreso = ingreso + monto - (monto / 4);
                 }
@@ -112,7 +112,7 @@ public class Hotel {
     public void personasEstadiaProlongada(){
         int i = 0;
         while(i<this.Huesped.size()){
-            if(this.Huesped.get(i).getCantDias()>30){
+            if(this.Huesped.get(i).getFechaEntrada().getCantDias(this.Huesped.get(i).getFechaSalida())>30){
                 System.out.println(Huesped.get(i).getDNI());
             }
             i++;
@@ -126,18 +126,20 @@ public class Hotel {
                 break;
             }
         }
-        return Habitaciones.get(i).getHuesped().getDNI();
+        return Habitaciones.get(i).getHuespedes().getDNI();
     }
 
     public void importeAPagar(){
         int i=0;
         while(i<this.Habitaciones.size()){
             if(this.Habitaciones.get(i).getOcupada()){
-                System.out.println("Nombre: "+this.Habitaciones.get(i).getHuesped().getNombre()+" "+this.Habitaciones.get(i).getHuesped().getApellido()+". Importe a pagar: "+ this.Habitaciones.get(i).getPrecioPorDia()*this.Habitaciones.get(i).getHuesped().getCantDias());
+                System.out.println("Nombre: "+this.Habitaciones.get(i).getHuespedes().getNombre()+" "+this.Habitaciones.get(i).getHuespedes().getApellido()+". Importe a pagar: "+ this.Habitaciones.get(i).getPrecioPorDia()*this.Habitaciones.get(i).getHuespedes().getFechaEntrada().getCantDias(this.Habitaciones.get(i).getHuespedes().getFechaSalida()));
             }
             i++;
         }
     }
+
+
 
 }
 
