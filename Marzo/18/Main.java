@@ -1,5 +1,5 @@
-import sistemas.administracion.Hospital;
-import sistemas.administracion.Pacientes;
+import sistemas.administracion.hospitales.Hospital;
+import sistemas.administracion.hospitales.Pacientes;
 
 public class Main {
 
