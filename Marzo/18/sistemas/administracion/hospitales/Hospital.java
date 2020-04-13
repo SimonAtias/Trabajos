@@ -1,4 +1,4 @@
-package sistemas.administracion;
+package sistemas.administracion.hospitales;
 import java.util.ArrayList;
 
 public class Hospital {
