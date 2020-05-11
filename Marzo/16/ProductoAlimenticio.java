@@ -1,50 +1,75 @@
-
-        /*
-2) Crear la clase ProductoAlimenticio:
-        Atributos:
-        nombre, precio, fecha de elaboración, fecha de vencimiento y peso
-        Métodos:
-        * método que retorne true si el producto supera los 5 kg de peso
-        * método que retorne true si ya está vencido (pasar fecha actual como parámetro)
-        * getters y setters
-        */
+import java.time.LocalDate;
 
 public class ProductoAlimenticio {
 
+    private int idProducto;
     private String nombre;
     private int precio;
-    private String fechaElaboracion;
-    private String fechaVencimiento;
+    private Fecha fechaElaboracion = new Fecha();
+    private Fecha fechaVencimiento = new Fecha();
     private int peso;
+    private int stock;
 
+    ProductoAlimenticio (int id) {
+        this.idProducto=id;
+        this.nombre="";
+        this.precio=0;
+        this.fechaElaboracion.setDia(0);
+        this.fechaElaboracion.setMes(0);
+        this.fechaElaboracion.setAnio(0);
+        this.fechaVencimiento.setDia(0);
+        this.fechaVencimiento.setMes(0);
+        this.fechaVencimiento.setAnio(0);
+        this.peso=0;
+        this.stock=0;
+    }
 
+    public int getIdProducto() {
+        return this.idProducto;
+    }
+
+    public int getStock() {
+        return this.stock;
+    }
 
     public int getPeso() {
-        return peso;
+        return this.peso;
     }
 
     public int getPrecio() {
-        return precio;
+        return this.precio;
     }
 
-    public String getFechaElaboracion() {
-        return fechaElaboracion;
+    public Fecha getFechaElaboracion() {
+        return this.fechaElaboracion;
     }
 
-    public String getFechaVencimiento() {
-        return fechaVencimiento;
+    public Fecha getFechaVencimiento() {
+        return this.fechaVencimiento;
     }
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
-    public void setFechaElaboracion(String fechaElaboracion) {
-        this.fechaElaboracion = fechaElaboracion;
+    public void setFechaVencimiento(int d, int m, int a) {
+        this.fechaVencimiento.setAnio(a);
+        this.fechaVencimiento.setMes(m);
+        this.fechaVencimiento.setAnio(a);
     }
 
-    public void setFechaVencimiento(String fechaVencimiento) {
-        this.fechaVencimiento = fechaVencimiento;
+    public void setFechaElaboracion(int d, int m, int a) {
+        this.fechaElaboracion.setAnio(a);
+        this.fechaElaboracion.setMes(m);
+        this.fechaElaboracion.setAnio(a);
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public void setNombre(String nombre) {
@@ -59,7 +84,7 @@ public class ProductoAlimenticio {
         this.precio = precio;
     }
 
-    public Boolean pesoMayOr5(){
+    public Boolean pesoMayor5(){
         if(this.peso>5){
             return true;
         }
@@ -67,5 +92,10 @@ public class ProductoAlimenticio {
             return false;
         }
     }
+
+    public Boolean vencido(){
+        return fechaVencimiento.posterior();
+    }
+
 
 }

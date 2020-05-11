@@ -36,7 +36,6 @@ public class Deposito {
     public void ingresarProducto (ProductoAlimenticio nuevo) {
 
         Scanner ingreso = new Scanner(System.in);
-        String saltoLinea = "";
 
         System.out.println("Ingrese el nombre");
 
@@ -48,34 +47,44 @@ public class Deposito {
 
         int precio = 0;
         precio = ingreso.nextInt();
-        saltoLinea = ingreso.nextLine();
+        ingreso.nextLine();
         nuevo.setPrecio(precio);
 
         System.out.println("Ingrese el peso");
 
         int peso = 0;
         peso = ingreso.nextInt();
-        saltoLinea = ingreso.nextLine();
+        ingreso.nextLine();
         nuevo.setPeso(peso);
 
         System.out.println("Ingrese el stock");
 
         int stock = 0;
         stock = ingreso.nextInt();
-        saltoLinea = ingreso.nextLine();
+        ingreso.nextLine();
         nuevo.setStock(stock);
 
         System.out.println("Ingrese la fecha de elaboracion");
 
-        String fechaElaboracion = "";
-        fechaElaboracion = ingreso.nextLine();
-        nuevo.setFechaElaboracion(fechaElaboracion);
+        Fecha fechaElaboracion = new Fecha();
+        int d = ingreso.nextInt();
+        ingreso.nextLine();
+        int m = ingreso.nextInt();
+        ingreso.nextLine();
+        int a = ingreso.nextInt();
+        ingreso.nextLine();
+        nuevo.setFechaElaboracion(d,m,a);
 
         System.out.println("Ingrese la fecha de vencimiento");
 
-        String fechaVencimiento = "";
-        fechaVencimiento = ingreso.nextLine();
-        nuevo.setFechaVencimiento(fechaVencimiento);
+        Fecha fechaVencimiento = new Fecha();
+        d = ingreso.nextInt();
+        ingreso.nextLine();
+        m = ingreso.nextInt();
+        ingreso.nextLine();
+        a = ingreso.nextInt();
+        ingreso.nextLine();
+        nuevo.setFechaVencimiento(d,m,a);
 
         this.productos.add(nuevo);
 
@@ -131,6 +140,18 @@ public class Deposito {
                 System.out.println(p.getNombre());
             }
         }
+    }
+
+    public ArrayList<ProductoAlimenticio> getProductos() {
+        return productos;
+    }
+
+    public void setIdDeposito(int idDeposito) {
+        this.idDeposito = idDeposito;
+    }
+
+    public void setProductos(ArrayList<ProductoAlimenticio> productos) {
+        this.productos = productos;
     }
 
 }

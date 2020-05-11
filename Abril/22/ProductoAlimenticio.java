@@ -1,10 +1,12 @@
+import java.time.LocalDate;
+
 public class ProductoAlimenticio {
 
     private int idProducto;
     private String nombre;
     private int precio;
-    private String fechaElaboracion;
-    private String fechaVencimiento;
+    private Fecha fechaElaboracion = new Fecha();
+    private Fecha fechaVencimiento = new Fecha();
     private int peso;
     private int stock;
 
@@ -12,8 +14,12 @@ public class ProductoAlimenticio {
         this.idProducto=id;
         this.nombre="";
         this.precio=0;
-        this.fechaElaboracion="";
-        this.fechaVencimiento="";
+        this.fechaElaboracion.setDia(0);
+        this.fechaElaboracion.setMes(0);
+        this.fechaElaboracion.setAnio(0);
+        this.fechaVencimiento.setDia(0);
+        this.fechaVencimiento.setMes(0);
+        this.fechaVencimiento.setAnio(0);
         this.peso=0;
         this.stock=0;
     }
@@ -34,11 +40,11 @@ public class ProductoAlimenticio {
         return this.precio;
     }
 
-    public String getFechaElaboracion() {
+    public Fecha getFechaElaboracion() {
         return this.fechaElaboracion;
     }
 
-    public String getFechaVencimiento() {
+    public Fecha getFechaVencimiento() {
         return this.fechaVencimiento;
     }
 
@@ -46,16 +52,24 @@ public class ProductoAlimenticio {
         return this.nombre;
     }
 
+    public void setFechaVencimiento(int d, int m, int a) {
+        this.fechaVencimiento.setAnio(a);
+        this.fechaVencimiento.setMes(m);
+        this.fechaVencimiento.setAnio(a);
+    }
+
+    public void setFechaElaboracion(int d, int m, int a) {
+        this.fechaElaboracion.setAnio(a);
+        this.fechaElaboracion.setMes(m);
+        this.fechaElaboracion.setAnio(a);
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+
     public void setStock(int stock) {
         this.stock = stock;
-    }
-
-    public void setFechaElaboracion(String fechaElaboracion) {
-        this.fechaElaboracion = fechaElaboracion;
-    }
-
-    public void setFechaVencimiento(String fechaVencimiento) {
-        this.fechaVencimiento = fechaVencimiento;
     }
 
     public void setNombre(String nombre) {
@@ -77,6 +91,10 @@ public class ProductoAlimenticio {
         else{
             return false;
         }
+    }
+
+    public Boolean vencido(){
+        return fechaVencimiento.posterior();
     }
 
 

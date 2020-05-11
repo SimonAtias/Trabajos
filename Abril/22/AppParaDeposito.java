@@ -21,8 +21,8 @@ public class AppParaDeposito {
         p.setNombre("serenito");
         p.setPeso(90);
         p.setPrecio(60);
-        p.setFechaElaboracion("2020-01-15");
-        p.setFechaVencimiento("2020-12-20");
+        p.setFechaElaboracion(1,15,2020);
+        p.setFechaVencimiento(20,12,2020);
         p.setStock(0);
         deposito.agregarProducto(p);
 
