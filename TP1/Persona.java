@@ -72,6 +72,7 @@ public class Persona {
         return this.DNI;
     }
 
+    // No hay un loop recorriendo un arreglo, asi que no se puede hacer un For Each
     public void agregarDias(int cantDiasAAgregar) {
         int i = 0;
         Fecha fecha1;

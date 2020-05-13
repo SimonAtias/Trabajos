@@ -51,6 +51,7 @@ public class Fecha {
 
         int cantDias=1;
 
+        // No se puede reemplazar porque no hay un recorrido de un arreglo, sino que hay un booleano usado para comprobar
         while(fecha1.esDifA(fecha2)) {
             if (fecha1.getMes() == 1 || fecha1.getMes() == 3 || fecha1.getMes() == 5 || fecha1.getMes() == 7 || fecha1.getMes() == 8 || fecha1.getMes() == 10 || fecha1.getMes() == 12) {
                 if (fecha1.getDia() == 31) {

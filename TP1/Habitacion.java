@@ -21,7 +21,7 @@ public class Habitacion {
         this.huespedes = new ArrayList<>();
     }
 
-
+    // No se puede hacer porque i empieza en 1, no 0
     private int sacarParametroDelMayor(ArrayList<Habitacion> gente){
         int i=1;
         int parameter = i;

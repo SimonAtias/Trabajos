@@ -175,7 +175,10 @@ public class Main {
         Sheraton.addClientes(p1);
         Sheraton.addClientes(p2);
         Sheraton.addClientes(p3);
-        
+
+        Sheraton.importeAPagar();
+        Sheraton.forEachImporteAPagar();
 
     }
 }
+

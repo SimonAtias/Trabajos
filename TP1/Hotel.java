@@ -5,6 +5,7 @@ public class Hotel {
     private ArrayList<Persona> Huesped = new ArrayList<Persona>();
     private ArrayList<Habitacion> Habitaciones = new ArrayList<Habitacion>();
 
+    // No se puede hacer porque i empieza en 1, no 0
     public int sacarParametroDelMayor(ArrayList<Persona> gente){
         int i=1;
         int parameter = 0;
@@ -109,6 +110,23 @@ public class Hotel {
         return ingreso;
     }
 
+    public int forEachGetIngresoTotal(){
+        int ingreso=0;
+        for(Habitacion hab : this.Habitaciones){
+            if(hab.getOcupada()){
+                int dias=hab.getHuespedes().getFechaEntrada().getCantDias(hab.getHuespedes().getFechaSalida());
+                if(dias<30) {
+                    ingreso = ingreso + dias * hab.getPrecioPorDia();
+                }
+                else{
+                    int monto = dias*(hab.getPrecioPorDia());
+                    ingreso = ingreso + monto - (monto / 4);
+                }
+            }
+        }
+        return ingreso;
+    }
+
     public void personasEstadiaProlongada(){
         int i = 0;
         while(i<this.Huesped.size()){
@@ -119,14 +137,34 @@ public class Hotel {
         }
     }
 
+    public void forEachPersonasEstadiaProlongada(){
+        for(Persona huesped: this.Huesped){
+            if(huesped.getFechaEntrada().getCantDias(huesped.getFechaSalida())>30){
+                System.out.println(huesped.getDNI());
+            }
+        }
+    }
+
     public int getHuespedDNI(int numHab) {
         int i=0;
         while(i<Habitaciones.size()){
             if(numHab==Habitaciones.get(i).getNumero()){
-                break;
+                return Habitaciones.get(i).getHuespedes().getDNI();
             }
         }
-        return Habitaciones.get(i).getHuespedes().getDNI();
+        System.out.println("Hubo un error inesperado: no hay huesped registrado en esa habitacion");
+        return 0;
+    }
+
+    public int forEachGetHuespedDNI(int numHab) {
+        int i=0;
+        for(Habitacion hab: this.Habitaciones){
+            if(numHab==hab.getNumero()){
+                return hab.getHuespedes().getDNI();
+            }
+        }
+        System.out.println("Hubo un error inesperado: no hay huesped registrado en esa habitacion");
+        return 0;
     }
 
     public void importeAPagar(){
@@ -136,6 +174,14 @@ public class Hotel {
                 System.out.println("Nombre: "+this.Habitaciones.get(i).getHuespedes().getNombre()+" "+this.Habitaciones.get(i).getHuespedes().getApellido()+". Importe a pagar: "+ this.Habitaciones.get(i).getPrecioPorDia()*this.Habitaciones.get(i).getHuespedes().getFechaEntrada().getCantDias(this.Habitaciones.get(i).getHuespedes().getFechaSalida()));
             }
             i++;
+        }
+    }
+
+    public void forEachImporteAPagar(){
+        for(Habitacion hab: this.Habitaciones){
+            if(hab.getOcupada()){
+                System.out.println("Nombre: "+hab.getHuespedes().getNombre()+" "+hab.getHuespedes().getApellido()+". Importe a pagar: "+ hab.getPrecioPorDia()*hab.getHuespedes().getFechaEntrada().getCantDias(hab.getHuespedes().getFechaSalida()));
+            }
         }
     }
 
