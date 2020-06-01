@@ -8,9 +8,21 @@ public class Fecha {
     private int anio;
 
     Fecha(int diaX, int mesX, int anioX){
-        this.dia=diaX;
-        this.anio=anioX;
-        this.mes=mesX;
+        if(diaX>31) {
+            this();
+        }
+        else if(diaX==31 && (mesX!=2 || mesX!=4 || mesX!=6 || mesX!=9 || mesX!=11)) {
+            this();
+        }
+        else if(diaX==29 && mesX!=2 && anioX%4!=0) {
+            this();
+        }
+        else if(diaX==) {
+            this.dia = diaX;
+            this.anio = anioX;
+            this.mes = mesX;
+        }
+
     }
 
     Fecha(){

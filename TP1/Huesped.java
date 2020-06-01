@@ -7,6 +7,14 @@ public class Huesped extends Persona{
     private Fecha fechaSalida;
     private int vecesHospedado;
 
+    public Huesped(String nombre, int edad, int dni){
+        super(nombre, edad, dni);
+        this.apellido = "";
+        this.fechaEntrada = new Fecha();
+        this.fechaSalida = new Fecha();
+        vecesHospedado = 0;
+    }
+
     public Fecha getFechaEntrada() {
         return fechaEntrada;
     }
@@ -14,7 +22,6 @@ public class Huesped extends Persona{
     public Fecha getFechaSalida() {
         return fechaSalida;
     }
-
 
     public String getApellido() {
         return apellido;
@@ -89,7 +96,7 @@ public class Huesped extends Persona{
     }
 
     public void getFechasES() {
-        System.out.println("El hospedaje de" + this.getNombre() + "es del " + this.fechaEntrada.getDia() + "/" + this.fechaEntrada.getMes() + "/" + this.fechaEntrada.getAnio() + " hasta " + this.fechaSalida.getDia() +"/"+this.fechaSalida.getMes() + "/" + this.fechaSalida.getAnio());
+        System.out.println("El hospedaje de" + this.getNombre() + " es del " + this.fechaEntrada.getDia() + "/" + this.fechaEntrada.getMes() + "/" + this.fechaEntrada.getAnio() + " hasta " + this.fechaSalida.getDia() +"/"+this.fechaSalida.getMes() + "/" + this.fechaSalida.getAnio());
     }
 
 
