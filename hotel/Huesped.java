@@ -1,7 +1,8 @@
 package hotel;
 import multiuso.Fecha;
+import personas.Persona;
 
-public class Huesped extends Persona{
+public class Huesped extends Persona {
 
     private String apellido;
     private Fecha fechaEntrada;
