@@ -9,10 +9,10 @@ public class Main {
 
         Hotel Sheraton = new Hotel();
 
-        Persona p1= new Persona();
-        Persona p2= new Persona();
-        Persona p3= new Persona();
-        Persona p4= new Persona();
+        Huesped p1= new Huesped();
+        Huesped p2= new Huesped();
+        Huesped p3= new Huesped();
+        Huesped p4= new Huesped();
 
         Fecha f1i=new Fecha(6,9,2020);
         f1i.setAnio(2020);

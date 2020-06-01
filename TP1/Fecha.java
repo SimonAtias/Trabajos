@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Fecha {
@@ -10,6 +11,12 @@ public class Fecha {
         this.dia=diaX;
         this.anio=anioX;
         this.mes=mesX;
+    }
+
+    Fecha(){
+        this.dia=0;
+        this.anio=0;
+        this.mes=0;
     }
 
     public int getAnio() {
@@ -92,6 +99,25 @@ public class Fecha {
             }
         }
         return cantDias;
+    }
+    // Metodo para indicar si la fecha ingresada es posterior a la actual
+    boolean posterior () {
+        LocalDate fechaDeHoy = LocalDate.now();
+        int d = fechaDeHoy.getDayOfMonth();
+        int m = fechaDeHoy.getMonthValue();
+        int a = fechaDeHoy.getYear();
+        if (a > this.getAnio()) {
+            return true;
+        }
+        else if(m > this.mes){
+            return true;
+        }
+        else if(d > this.dia) {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }

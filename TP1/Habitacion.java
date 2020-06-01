@@ -6,7 +6,7 @@ public class Habitacion {
     private int solicitudes;
     private int capacidad;
     private int precioPorDia;
-    private ArrayList<Persona> huespedes;
+    private ArrayList<Huesped> huespedes;
     private boolean ocupada;
 
     Habitacion(int capacidadX){
@@ -40,7 +40,7 @@ public class Habitacion {
         System.out.println(this.numero);
     }
 
-    public Persona getHuespedes() {
+    public Huesped getHuespedes() {
         return huespedes.get(0);
     }
 
@@ -89,12 +89,12 @@ public class Habitacion {
     }
 
 
-    public void addHuesped(Persona personaAAgregar){
+    public void addHuesped(Huesped HuespedAAgregar){
         if((this.capacidad==2  && this.huespedes.size()<2) || ( this.capacidad==1)){
-            this.huespedes.add(personaAAgregar);
+            this.huespedes.add(HuespedAAgregar);
         }
         else{
-            System.out.println("Hubo un error al agregar una persona");
+            System.out.println("Hubo un error al agregar una Huesped");
         }
     }
 

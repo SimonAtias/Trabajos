@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class Hotel {
 
-    private ArrayList<Persona> Huesped = new ArrayList<Persona>();
+    private ArrayList<Huesped> Huesped = new ArrayList<Huesped>();
     private ArrayList<Habitacion> Habitaciones = new ArrayList<Habitacion>();
 
     // No se puede hacer porque i empieza en 1, no 0
-    public int sacarParametroDelMayor(ArrayList<Persona> gente){
+    public int sacarParametroDelMayor(ArrayList<Huesped> gente){
         int i=1;
         int parameter = 0;
         int mayor=gente.get(0).getVecesHospedado();
@@ -35,7 +35,7 @@ public class Hotel {
         return parameter;
     }
 
-    public void addClientes(Persona clienteEquis) {
+    public void addClientes(Huesped clienteEquis) {
         this.Huesped.add(clienteEquis);
     }
 
@@ -44,8 +44,8 @@ public class Hotel {
     }
 
     public void masFrecuentes(){                                    // Metodo para sacar a los Huespedes mas frecuentes: Crea un arreglo en el que obtiene todos los huespedes y por la
-        ArrayList<Persona> frecuentes= new ArrayList<>();           // variable vecesHospedado se obtienen los DNIs que tienen los 2 mas hospedados huespedes.  La logica es: se  busca
-        ArrayList<Persona> huespedes = (ArrayList<Persona>) this.Huesped.clone();                 // el parametro del mayor, se lo saca del arreglo en donde estan todos y se pone en uno nuevo para despues mostrarlo
+        ArrayList<Huesped> frecuentes= new ArrayList<>();           // variable vecesHospedado se obtienen los DNIs que tienen los 2 mas hospedados huespedes.  La logica es: se  busca
+        ArrayList<Huesped> huespedes = (ArrayList<Huesped>) this.Huesped.clone();                 // el parametro del mayor, se lo saca del arreglo en donde estan todos y se pone en uno nuevo para despues mostrarlo
         int i=0;
         while(i<2){
             int parametroMayor=sacarParametroDelMayor(huespedes);
@@ -127,7 +127,7 @@ public class Hotel {
         return ingreso;
     }
 
-    public void personasEstadiaProlongada(){
+    public void HuespedsEstadiaProlongada(){
         int i = 0;
         while(i<this.Huesped.size()){
             if(this.Huesped.get(i).getFechaEntrada().getCantDias(this.Huesped.get(i).getFechaSalida())>30){
@@ -137,8 +137,8 @@ public class Hotel {
         }
     }
 
-    public void forEachPersonasEstadiaProlongada(){
-        for(Persona huesped: this.Huesped){
+    public void forEachHuespedsEstadiaProlongada(){
+        for(Huesped huesped: this.Huesped){
             if(huesped.getFechaEntrada().getCantDias(huesped.getFechaSalida())>30){
                 System.out.println(huesped.getDNI());
             }
