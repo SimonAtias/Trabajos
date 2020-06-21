@@ -6,8 +6,8 @@ import java.util.HashMap;
 
 public class Cliente extends Persona {
 
-    int idCliente;
-    HashMap<Libro, Integer> venta = new HashMap<Libro, Integer>();
+    private int idCliente;
+    private HashMap<Libro, Integer> venta = new HashMap<Libro, Integer>();
 
     public HashMap<Libro, Integer> getVenta() {
         return venta;

@@ -3,10 +3,10 @@ import java.util.HashSet;
 
 public class Partido {
 
-    boolean ganado;
-    HashSet<Jugador> jugadoresDelClub =  new HashSet<>();
-    HashSet<Jugador> jugadoresVisitantes =  new HashSet<>();;
-    Fecha fecha;
+    private boolean ganado;
+    private HashSet<Jugador> jugadoresDelClub =  new HashSet<>();
+    private HashSet<Jugador> jugadoresVisitantes =  new HashSet<>();;
+    private Fecha fecha;
 
     public Fecha getFecha() {
         return this.fecha;

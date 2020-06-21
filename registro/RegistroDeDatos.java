@@ -1,10 +1,11 @@
+package registro;
 import java.util.Scanner;
 
 public class RegistroDeDatos {
-    public String nombre;
-    public String apellido;
-    public int edad;
-    public String ocupacion;
+    private String nombre;
+    private String apellido;
+    private int edad;
+    private String ocupacion;
 
     RegistroDeDatos(){
         this.nombre = " ";

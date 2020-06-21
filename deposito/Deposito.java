@@ -5,8 +5,8 @@ import java.util.function.DoubleToIntFunction;
 
 public class Deposito {
 
-    public ArrayList<ProductoAlimenticio> productos;
-    public int idDeposito;
+    private ArrayList<ProductoAlimenticio> productos;
+    private int idDeposito;
 
     Deposito (int id){
         this.idDeposito=id;

@@ -2,11 +2,11 @@ package biblioteca;
 
 public class Libro {
 
-    String nombre;
-    int precio;
-    int ISBN;
-    int ventas;
-    String editorial;
+    private String nombre;
+    private int precio;
+    private int ISBN;
+    private int ventas;
+    private String editorial;
 
     Libro(){
         this.nombre = "";

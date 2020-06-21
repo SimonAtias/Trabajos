@@ -1,10 +1,11 @@
+package registro;
 import java.util.Scanner;
 
 public class RegistroDeCompras {
-    public int precio;
-    public String nombre;
-    public String marca;
-    public int unidades;
+    private int precio;
+    private String nombre;
+    private String marca;
+    private int unidades;
 
     RegistroDeCompras(){
         this.precio = 0;

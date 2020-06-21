@@ -1,9 +1,9 @@
 package club;
 public class Jugador {
 
-    String nombre;
-    String apellido;
-    String edad;
+    private String nombre;
+    private String apellido;
+    private String edad;
 
     public String getApellido() {
         return this.apellido;
