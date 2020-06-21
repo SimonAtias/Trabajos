@@ -6,16 +6,23 @@ import java.util.Date;
 
 public class Pedido {
 
-    private ArrayList<Plato> platos = new ArrayList<>();
+    private ArrayList<Plato> platos;
     private int idPedido;
     private boolean entregado;
     private Mesa mesa;
 
-    // No hice un constructor de pedidos sin parametro porque no se cual seria la utilidad
     Pedido(int id, Mesa mesaX, ArrayList<Plato> platosPedidos){
         this.idPedido=id;
         this.mesa=mesaX;
+        platos = new ArrayList<>();
         this.platos.addAll(platosPedidos);
+    }
+
+    Pedido(){
+        ArrayList<Plato> platos;
+        int idPedido;
+        boolean entregado;
+        Mesa mesa = new Mesa();
     }
 
     public ArrayList<Plato> getPlatos() {

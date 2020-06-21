@@ -55,7 +55,7 @@ public class Restaurante {
 
     public void agregarPedido(Mesa mesaNueva, Mozo mozoAsignado, ArrayList<Plato> platosPedidos){
         Pedido nuevoPedido = new Pedido(pedidos.size()+1, mesaNueva, platosPedidos);
-        this.pedidos.add(nuevoPedido);
+        this.pedidos.put(nuevoPedido, mozoAsignado);
     }
 
     public Plato masPedido(){
@@ -83,10 +83,25 @@ public class Restaurante {
     }
 
     public void proximoPedido(){
-        System.out.println(pedidos.get(0).getIdPedido());
-        System.out.println(pedidos.get(0).getMesa());
-        System.out.println(pedidos.get(0).getMozoAsignado().getNombre());
-        pedidos.get(0).printPlatos();
+        boolean noEntro = true;
+        Pedido prioritario = new Pedido();
+        Mozo mozoEncargado = new Mozo();
+        for (Map.Entry<Pedido, Mozo> elem : this.pedidos.entrySet()){
+            if(noEntro){
+                prioritario = elem.getKey();
+                mozoEncargado = elem.getValue();
+            }
+            else if(elem.getKey().getIdPedido() < prioritario.getIdPedido()){
+                prioritario = elem.getKey();
+                mozoEncargado = elem.getValue();
+            }
+        }
+
+        System.out.println(prioritario.getIdPedido());
+        System.out.println(mozoEncargado.getNombre());
+        System.out.println(prioritario.getMesa().getNumero());
+        prioritario.printPlatos();
+
     }
 
 }

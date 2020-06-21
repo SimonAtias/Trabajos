@@ -4,9 +4,21 @@ import java.util.HashSet;
 
 public class Mozo {
 
-    private HashSet<Pedido> pedidosDiarios = new HashSet<>();
+    private HashSet<Pedido> pedidosDiarios;
     private String nombre;
     private int dni;
+
+    Mozo(String n, int doc){
+        this.pedidosDiarios = new HashSet<>();
+        this.nombre=n;
+        this.dni=doc;
+    }
+
+    Mozo(){
+        this.pedidosDiarios = new HashSet<>();
+        nombre="Fulano Jaimito Magoya";
+        dni=1000000;
+    }
 
     public String getNombre() {
         return nombre;
@@ -30,6 +42,10 @@ public class Mozo {
 
     public void setDni(int dni) {
         this.dni = dni;
+    }
+
+    public void addPedido(Pedido p){
+        this.pedidosDiarios.add(p);
     }
 
 }
