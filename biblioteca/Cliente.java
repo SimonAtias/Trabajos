@@ -7,10 +7,10 @@ import java.util.HashMap;
 public class Cliente extends Persona {
 
     private int idCliente;
-    private HashMap<Libro, Integer> venta = new HashMap<Libro, Integer>();
+    private HashMap<Libro, Integer> compras = new HashMap<Libro, Integer>();
 
     public HashMap<Libro, Integer> getVenta() {
-        return venta;
+        return compras;
     }
 
     public int getIdCliente() {
@@ -22,7 +22,7 @@ public class Cliente extends Persona {
     }
 
     public void setVenta(HashMap<Libro, Integer> venta) {
-        this.venta = venta;
+        this.compras = venta;
     }
 
 }

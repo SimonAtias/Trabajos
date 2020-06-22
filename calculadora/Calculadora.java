@@ -121,7 +121,7 @@ public class Calculadora {
         pila.add(variableRecibida.getValor());
     }
 
-    public void elegirOperacionEjecutar(Instruccion instruccion){
+    /*public void elegirOperacionEjecutar(Instruccion instruccion){
         switch (instruccion.getOperacionHacer()){
             case "PUSH":
                 push(instruccion.getParametroNumerico());
@@ -176,7 +176,7 @@ public class Calculadora {
             System.out.println("Error, la rutina ingresada no existe.");
         }
 
-    }
+    }*
 
     public static void main(String[] args) {
         Programa p = new Programa();
@@ -200,7 +200,7 @@ public class Calculadora {
         calc.memoria.add(variableNueva2);
         
         calc.ejecutar("rutinaB");
-    }
+    }*/
     
      /*
     Muy buenos trabajos! Felicitaciones!

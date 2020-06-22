@@ -1,11 +1,11 @@
 package multiuso;
 import java.util.ArrayList;
 
-public class ArrayListMejorada extends ArrayList{
+public class ArrayListMejorada<E> extends ArrayList<E>{
 
-    public void agregarElementosIndefinidos(Object... elementos){
-        for (Object o: elementos){
-            this.add(o);
+    public void agregarElementosIndefinidos(E... elementos){
+        for (E v: elementos){
+            this.add(v);
         }
     }
 
