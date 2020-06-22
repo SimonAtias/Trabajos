@@ -1,9 +1,6 @@
 package biblioteca;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
 
 public class Biblioteca {
 
@@ -11,11 +8,25 @@ public class Biblioteca {
         editoriales.add(editorial);
     }
 
+    public void printLibrosPorDia(ArrayList<DiaConVenta> semana){
+        for(DiaConVenta d: semana){
+            d.printVentas();
+        }
+    }
+
     public static void main(String[] args) {
 
-        HashMap<String, Integer> ventas = new HashMap<String, Integer>();
-        Libro l1 = new Libro("Tormenta de Espadas", 1800, 3515, 7,"Interzona");
+        HashMap<Editorial, Integer> ventas = new HashMap<>();
+        Libro l1 = new Libro("Tormenta de Espadas", 1800, 3515, 7,Editorial.interzona);
         HashSet<String> editorialesConDescuento = new HashSet<>();
+        ArrayList<DiaConVenta> ventasSemanales = new ArrayList<>();
+        ventasSemanales.add(DiaConVenta.Domingo);
+        ventasSemanales.add(DiaConVenta.Lunes);
+        ventasSemanales.add(DiaConVenta.Martes);
+        ventasSemanales.add(DiaConVenta.Miercoles);
+        ventasSemanales.add(DiaConVenta.Jueves);
+        ventasSemanales.add(DiaConVenta.Viernes);
+        ventasSemanales.add(DiaConVenta.Sabado);
 
     }
 }

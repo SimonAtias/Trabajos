@@ -6,17 +6,17 @@ public class Libro {
     private int precio;
     private int ISBN;
     private int ventas;
-    private String editorial;
+    private Editorial editorial;
 
-    Libro(){
+    public Libro(){
         this.nombre = "";
         this.precio = 0;
         this.ISBN = 0;
         this.ventas = 0;
-        this.editorial = "";
+        this.editorial = Editorial.Atlantida;
     }
 
-    Libro(String name, int price, int isbn, int sales, String editorialX){
+    public Libro(String name, int price, int isbn, int sales, Editorial editorialX){
         this.nombre=name;
         this.precio=price;
         this.ISBN=isbn;
