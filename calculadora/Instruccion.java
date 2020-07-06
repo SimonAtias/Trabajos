@@ -21,4 +21,9 @@ public class Instruccion {
         return operacionHacer;
     }
 
+    public Object getParametro(){
+        return "";
+    }
+
+
 }

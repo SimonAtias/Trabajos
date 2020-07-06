@@ -9,7 +9,8 @@ public class InstruccionConVariable extends Instruccion {
         this.nombreVariable = nombreVariable;
     }
 
-    public String getNombreVariable() {
+    @Override
+    public Object getParametro() {
         return nombreVariable;
     }
 

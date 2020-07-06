@@ -10,18 +10,17 @@ public class Persona {
         this("Carolina",23,12345678);
     }
 
+    public Persona(int doc){
+        nombre="";
+        edad=1;
+        dni=doc;
+    }
+
     public Persona(String nombre, int edad, int dni) {
         this.nombre = nombre;
         this.edad = edad;
         this.dni = dni;
     }
-
-    public Persona(int edad){
-        this("Carolina");
-        this.edad = edad;
-        this.dni = 12345678;
-    }
-
 
     public Persona(String nombre){
         this.nombre = nombre;

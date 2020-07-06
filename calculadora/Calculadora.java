@@ -121,10 +121,10 @@ public class Calculadora {
         pila.add(variableRecibida.getValor());
     }
 
-    /*public void elegirOperacionEjecutar(Instruccion instruccion){
+    public void elegirOperacionEjecutar(Instruccion instruccion){
         switch (instruccion.getOperacionHacer()){
             case "PUSH":
-                push(instruccion.getParametroNumerico());
+                push((Integer) instruccion.getParametro());
                 break;
             case "ADD":
                 push(add());
@@ -136,7 +136,7 @@ public class Calculadora {
                 push(mul());
                 break;
             case "WRITE":
-                Variable variableEscribir=variableEnMemoria(instruccion.getNombreVariable());
+                Variable variableEscribir=variableEnMemoria((String) instruccion.getParametro());
                 if(variableEscribir!=null){
                     write(variableEscribir);
                 }
@@ -145,7 +145,7 @@ public class Calculadora {
                 }
                 break;
             case "READ":
-                Variable variableLeer=variableEnMemoria(instruccion.getNombreVariable());
+                Variable variableLeer=variableEnMemoria((String) instruccion.getParametro());
                 if(variableLeer!=null){
                     read(variableLeer);
                 }
@@ -176,19 +176,19 @@ public class Calculadora {
             System.out.println("Error, la rutina ingresada no existe.");
         }
 
-    }*
+    }
 
     public static void main(String[] args) {
         Programa p = new Programa();
 
-        p.agregarInstruccion("rutinaA", new Instruccion("PUSH", 2));
+        p.agregarInstruccion("rutinaA", new InstruccionConNumero("PUSH", 2));
         p.agregarInstruccion("rutinaA", new Instruccion("ADD"));
-        p.agregarInstruccion("rutinaA", new Instruccion("WRITE", "y"));
-        p.agregarInstruccion("rutinaA", new Instruccion("READ", "x"));
-        p.agregarInstruccion("rutinaB", new Instruccion("READ", "x"));
+        p.agregarInstruccion("rutinaA", new InstruccionConVariable("WRITE", "y"));
+        p.agregarInstruccion("rutinaA", new InstruccionConVariable("READ", "x"));
+        p.agregarInstruccion("rutinaB", new InstruccionConVariable("READ", "x"));
         p.agregarInstruccion("rutinaB", new Instruccion("MUL"));
-        p.agregarInstruccion("rutinaB", new Instruccion("WRITE", "x"));
-        p.agregarInstruccion("rutinaB", new Instruccion("PUSH", 2));
+        p.agregarInstruccion("rutinaB", new InstruccionConVariable("WRITE", "x"));
+        p.agregarInstruccion("rutinaB", new InstruccionConNumero("PUSH", 2));
 
         Calculadora calc = new Calculadora();
         calc.cargarPrograma(p);
@@ -200,7 +200,7 @@ public class Calculadora {
         calc.memoria.add(variableNueva2);
         
         calc.ejecutar("rutinaB");
-    }*/
+    }
     
      /*
     Muy buenos trabajos! Felicitaciones!

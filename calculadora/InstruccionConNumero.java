@@ -13,7 +13,8 @@ public class InstruccionConNumero extends Instruccion {
         this.parametroNumerico = parametroNumerico;
     }
 
-    public int getParametroNumerico() {
+    @Override
+    public Object getParametro() {
         return parametroNumerico;
     }
 
