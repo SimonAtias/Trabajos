@@ -21,7 +21,7 @@ public class Veterinaria {
         HashSet<String> razas = new HashSet<>();
         for(Map.Entry<Mascota, Integer> mYv: mascotasYVisitas.entrySet()){
             if(mYv.getKey().getClass()==Perro.class){
-                if(mYv.getKey().cumpleVisitasNecesariasDesdeNacimiento()){
+                if(!mYv.getKey().cumpleVisitasNecesariasDesdeNacimiento()){
                     Perro aux = (Perro) mYv.getKey();
                     razas.add(aux.getRaza());
                 }
