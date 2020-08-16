@@ -37,6 +37,9 @@ public class Huesped extends Persona {
         return apellido;
     }
 
+    // Huesped juanito = new Huesped();
+    // juanito.set
+
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }

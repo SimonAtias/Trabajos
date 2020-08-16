@@ -5,6 +5,7 @@ public class Persona {
     private String nombre;
     private int edad;
     private int dni;
+    private String ocupacion;
 
     public Persona(){
         this("Carolina",23,12345678);
@@ -53,6 +54,14 @@ public class Persona {
         return this.dni;
     }
 
+    public int getDni() {
+        return dni;
+    }
+
+    public String getOcupacion() {
+        return ocupacion;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -60,4 +69,9 @@ public class Persona {
     public void setDNI(int dni) {
         this.dni = dni;
     }
+
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
+    }
+
 }
