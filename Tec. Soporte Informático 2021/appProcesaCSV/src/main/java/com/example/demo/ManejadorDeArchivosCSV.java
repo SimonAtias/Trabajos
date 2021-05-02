@@ -21,7 +21,7 @@ public class ManejadorDeArchivosCSV {
 
     public ManejadorDeArchivosCSV() {
         this.ubicacionArchivo = "src/main/resources/files/";
-        this.nombreDeArchivo = "socios.csv";
+        this.nombreDeArchivo = "incendios-cantidad-causas-parques-nacionales.csv";
         this.separador = ';';
     }
 
@@ -78,25 +78,30 @@ public class ManejadorDeArchivosCSV {
         CSVReader reader = this.obtenerArchivoFormateado();
         Iterator<String[]> iterador = reader.iterator();
         HashMap<String,Object> informacion = new HashMap<>();
-        ArrayList<Proyecto> proyectos = new ArrayList<>();
+        ArrayList<Incendio> incendios = new ArrayList<>();
 
         while (iterador.hasNext()){
             String[] fila = iterador.next();
 
-            int idProyecto = Integer.parseInt(fila[0]);
-            String fuenteProyecto = fila[1];
-            String titulo  = fila[2];
-            Proyecto proyecto = new Proyecto(idProyecto, fuenteProyecto, titulo);
+            int incendiosAnio = Integer.parseInt(fila[0]);
+            int cantIncendios = Integer.parseInt(fila[1]);
+            int incendiosNegligentes = Integer.parseInt(fila[2]);
+            int incendiosInternacionales = Integer.parseInt(fila[3]);
+            int incendiosNatuarles = Integer.parseInt(fila[4]);
+            int incendiosCausaDesconocida = Integer.parseInt(fila[5]);
+
+            Incendio incendio = new Incendio(incendiosAnio, cantIncendios, incendiosNegligentes, incendiosInternacionales, incendiosNatuarles, incendiosCausaDesconocida);
+            incendios.add(incendio);
         }
 
-        informacion.put("proyectos", proyectos);
+        informacion.put("incendios", incendios);
 
         return informacion;
 
     }
 
     public static void main(String[] args) {
-
+        ManejadorDeArchivosCSV m = new ManejadorDeArchivosCSV();
     }
 
 }

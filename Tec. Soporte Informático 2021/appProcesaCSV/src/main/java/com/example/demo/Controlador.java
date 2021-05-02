@@ -47,14 +47,14 @@ public class Controlador {
         HashMap<String,Object> datos = new HashMap<>();
         ArrayList jsonDeserializado = new ArrayList();
         try {
-            jsonDeserializado = mapper.readValue(new File("src/main/resources/files/producto_2018.json"), ArrayList.class);
+            jsonDeserializado = mapper.readValue(new File("src/main/resources/files/equipos-sistemas-nacionales.json"), ArrayList.class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        datos.put("producto",jsonDeserializado);
+        datos.put("equipos",jsonDeserializado);
         return new ResponseEntity<>(datos,HttpStatus.OK);
     }
 

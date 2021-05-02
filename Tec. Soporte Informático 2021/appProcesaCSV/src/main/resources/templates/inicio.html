@@ -17,18 +17,29 @@
     <button id="botonCsv" onclick="mostrarTablaCSV()"> datos de archivo .csv </button>
     <button id="botonJSon" onclick="mostrarTablaJSON()"> datos de archivo .json </button>
 
-    <table id="informacionSolicitada" class="table table-striped" style="display: none">
+    <table id="informacionSolicitadaIncendios" class="table table-striped" style="display: none">
       <tr>
-        <th>Id de departamento</th>
-        <th>Nombre de departamento </th>
-        <th>Id de provincia</th>
-        <th>Nombre de provincia</th>
-        <th>Año</th>
-        <th>Semanas epidemiológicas</th>
-        <th>Nombre de evento</th>
-        <th>Id de grupo por edad</th>
-        <th>Grupo etario</th>
-        <th>Cantidad de casos</th>
+        <th>Incendios Anio</th>
+        <th>Cantidad Incendios </th>
+        <th>Incendios Negligentes</th>
+        <th>Incendios Internacionales</th>
+        <th>Incendios Naturales</th>
+        <th>Incendios con Causa Desconocida</th>
+      </tr>
+
+    </table>
+
+    <table id="informacionSolicitadaEquipos" class="table table-striped" style="display: none">
+      <tr>
+        <th>Servicios</th>
+        <th>Tipo </th>
+        <th>Equipo_id</th>
+        <th>Equipo_desc</th>
+        <th>Subtipo</th>
+        <th>Areas</th>
+        <th>Muestras</th>
+        <th>Provincia</th>
+        <th>Descripcion Institucion</th>
       </tr>
 
     </table>
@@ -48,25 +59,21 @@
 
                   console.log(data);
 
-                  let datos = data.casos;
+                  let datos = data.incendios;
                   let contenido = "";
                   for (var i = 0; i < datos.length; i++){
                     contenido = "<tr>\n";
-                    contenido += "<td>" + datos[i].idDepartamento + "</td>";
-                    contenido += "<td>" + datos[i].nombreDepartamento + "</td>";
-                    contenido += "<td>" + datos[i].idProvincia + "</td>";
-                    contenido += "<td>" + datos[i].nombreProvincia + "</td>";
-                    contenido += "<td>" + datos[i].anio + "</td>";
-                    contenido += "<td>" + datos[i].semanas + "</td>";
-                    contenido += "<td>" + datos[i].evento + "</td>";
-                    contenido += "<td>" + datos[i].idGrupoEdad + "</td>";
-                    contenido += "<td>" + datos[i].grupoEtario + "</td>";
-                    contenido += "<td>" + datos[i].cantidadDeCasos + "</td>";
+                    contenido += "<td>" + datos[i].incendiosAnio + "</td>";
+                    contenido += "<td>" + datos[i].cantIncendios + "</td>";
+                    contenido += "<td>" + datos[i].incendiosNegligentes + "</td>";
+                    contenido += "<td>" + datos[i].incendiosInternacionales + "</td>";
+                    contenido += "<td>" + datos[i].incendiosNaturales + "</td>";
+                    contenido += "<td>" + datos[i].incendiosCausaDesconocida + "</td>";
 
-                    $("#informacionSolicitada").append(contenido);
+                    $("#informacionSolicitadaIncendios").append(contenido);
                   }
 
-                  $("#informacionSolicitada").show();
+                  $("#informacionSolicitadaIncendios").show();
 
 
                 })
@@ -86,25 +93,23 @@
         })
                 .done(function (data) {
 
-                  let datos = data.casos;
+                  let datos = data.equipos;
                   let contenido = "";
                   for (var i = 0; i < datos.length; i++){
                     contenido = "<tr>\n";
-                    contenido += "<td>" + datos[i].departamento_id + "</td>";
-                    contenido += "<td>" + datos[i].departamento_nombre + "</td>";
-                    contenido += "<td>" + datos[i].provincia_id + "</td>";
-                    contenido += "<td>" + datos[i].provincia_nombre + "</td>";
-                    contenido += "<td>" + datos[i].anio + "</td>";
-                    contenido += "<td>" + datos[i].semanas_epidemiologicas + "</td>";
-                    contenido += "<td>" + datos[i].evento_nombre + "</td>";
-                    contenido += "<td>" + datos[i].grupo_edad_id + "</td>";
-                    contenido += "<td>" + datos[i].grupo_edad_desc + "</td>";
-                    contenido += "<td>" + datos[i].cantidad_casos + "</td>";
-
-                    $("#informacionSolicitada").append(contenido);
+                    contenido += "<td>" + datos[i].servicios + "</td>";
+                    contenido += "<td>" + datos[i].tipo + "</td>";
+                    contenido += "<td>" + datos[i].equipo_id + "</td>";
+                    contenido += "<td>" + datos[i].equipo_desc + "</td>";
+                    contenido += "<td>" + datos[i].subtipo + "</td>";
+                    contenido += "<td>" + datos[i].areas + "</td>";
+                    contenido += "<td>" + datos[i].muestras + "</td>";
+                    contenido += "<td>" + datos[i].provincia + "</td>";
+                    contenido += "<td>" + datos[i].tipo_institucion_descripcion + "</td>";
+                    $("#informacionSolicitadaEquipos").append(contenido);
                   }
 
-                  $("#informacionSolicitada").show();
+                  $("#informacionSolicitadaEquipos").show();
 
                 })
                 .fail(function () {
