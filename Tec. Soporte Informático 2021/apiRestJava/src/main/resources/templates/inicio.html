@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title> datos </title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <body>
+
+    <button id="botonCsv" onclick="mostrarTablaCSV()"> datos de archivo .csv </button>
+    <button id="botonJSon" onclick="mostrarTablaJSON()"> datos de archivo .json </button>
+
+    <table id="informacionSolicitadaIncendios" class="table table-striped" style="display: none">
+      <tr>
+        <th>Incendios Anio</th>
+        <th>Cantidad Incendios </th>
+        <th>Incendios Negligentes</th>
+        <th>Incendios Internacionales</th>
+        <th>Incendios Naturales</th>
+        <th>Incendios con Causa Desconocida</th>
+      </tr>
+
+    </table>
+
+    <table id="informacionSolicitadaEquipos" class="table table-striped" style="display: none">
+      <tr>
+        <th>Servicios</th>
+        <th>Tipo </th>
+        <th>Equipo_id</th>
+        <th>Equipo_desc</th>
+        <th>Subtipo</th>
+        <th>Areas</th>
+        <th>Muestras</th>
+        <th>Provincia</th>
+        <th>Descripcion Institucion</th>
+      </tr>
+
+    </table>
+
+    <script>
+
+      function mostrarTablaCSV(){
+
+        $("#botonCsv").hide();
+        $("#botonJSon").hide();
+
+        $.ajax({
+          url: "http://localhost:8080/api/datos/csv",
+          type: 'GET'
+        })
+                .done(function (data) {
+
+                  console.log(data);
+
+                  let datos = data.incendios;
+                  let contenido = "";
+                  for (var i = 0; i < datos.length; i++){
+                    contenido = "<tr>\n";
+                    contenido += "<td>" + datos[i].incendiosAnio + "</td>";
+                    contenido += "<td>" + datos[i].cantIncendios + "</td>";
+                    contenido += "<td>" + datos[i].incendiosNegligentes + "</td>";
+                    contenido += "<td>" + datos[i].incendiosInternacionales + "</td>";
+                    contenido += "<td>" + datos[i].incendiosNaturales + "</td>";
+                    contenido += "<td>" + datos[i].incendiosCausaDesconocida + "</td>";
+
+                    $("#informacionSolicitadaIncendios").append(contenido);
+                  }
+
+                  $("#informacionSolicitadaIncendios").show();
+
+
+                })
+                .fail(function () {
+                  console.log("error, no se pudo obtener datos");
+                });
+      }
+
+      function mostrarTablaJSON() {
+
+        $("#botonCsv").hide();
+        $("#botonJSon").hide();
+
+        $.ajax({
+          url: "http://localhost:8080/api/datos/json",
+          type: 'GET'
+        })
+                .done(function (data) {
+
+                  let datos = data.equipos;
+                  let contenido = "";
+                  for (var i = 0; i < datos.length; i++){
+                    contenido = "<tr>\n";
+                    contenido += "<td>" + datos[i].servicios + "</td>";
+                    contenido += "<td>" + datos[i].tipo + "</td>";
+                    contenido += "<td>" + datos[i].equipo_id + "</td>";
+                    contenido += "<td>" + datos[i].equipo_desc + "</td>";
+                    contenido += "<td>" + datos[i].subtipo + "</td>";
+                    contenido += "<td>" + datos[i].areas + "</td>";
+                    contenido += "<td>" + datos[i].muestras + "</td>";
+                    contenido += "<td>" + datos[i].provincia + "</td>";
+                    contenido += "<td>" + datos[i].tipo_institucion_descripcion + "</td>";
+                    $("#informacionSolicitadaEquipos").append(contenido);
+                  }
+
+                  $("#informacionSolicitadaEquipos").show();
+
+                })
+                .fail(function () {
+                  console.log("error, no se pudo obtener datos");
+                });
+      }
+
+    </script>
+
+  </body>
+
+</html>
