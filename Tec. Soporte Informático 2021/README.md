@@ -31,5 +31,5 @@
 - [28 de Octubre](https://github.com/SimonAtias/TrabajosProfNadia/tree/master/Tec.%20Soporte%20Inform%C3%A1tico%202021/28-10)
 
 ## TP10 - Analisis del Curso
-- [11 de Noviembre](https://github.com/SimonAtias/TrabajosProfNadia/tree/master/Tec.%20Soporte%20Inform%C3%A1tico%202021/TP11-11)
+- [11 de Noviembre](https://github.com/SimonAtias/TrabajosProfNadia/blob/master/Tec.%20Soporte%20Inform%C3%A1tico%202021/11-11/1011.ipynb)
 
