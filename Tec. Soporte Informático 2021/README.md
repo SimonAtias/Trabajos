@@ -1,4 +1,4 @@
-# Repositorio del Taller de Tecnologías de Soporte Informartico de Atías, Simón
+# Repositorio del Taller de Tecnologías de Soporte Informático de Atías, Simón
 
 ## TP0 
 - [API Rest Java](https://github.com/SimonAtias/TrabajosProfNadia/tree/master/Tec.%20Soporte%20Inform%C3%A1tico%202021/apiRestJava)
